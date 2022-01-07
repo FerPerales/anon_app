@@ -2,6 +2,14 @@
 
 Demo app to show what [PostgreSQL anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/index.html) can do for us
 
+# Requirements
+
+Tested with the following tools:
+
+* ruby 2.7.3
+* node 14.18.1
+* yarn 1.22.17
+
 
 # Install
 
@@ -9,7 +17,10 @@ Demo app to show what [PostgreSQL anonymizer](https://postgresql-anonymizer.read
 git clone https://github.com/FerPerales/anon_app.git
 cd anon_app
 bundle install
+yarn install
+rails db:create
 rails db:migrate
+rails db:seed
 rails server
 ```
 
@@ -50,7 +61,6 @@ psql anon_app_development
 **Inside** your database console, run this:
 
 ```
-
 SELECT anon.init();
 
 SECURITY LABEL FOR anon ON COLUMN users.first_name
